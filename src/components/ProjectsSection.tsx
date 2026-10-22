@@ -241,7 +241,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     <div className={isFeaturedWide ? 'lg:col-span-6 flex flex-col justify-between' : 'flex flex-col justify-between'}>
                       <div>
                         {/* Unboxed Metadata with Typographic Separators (Zero-Pill Rule) */}
-                        <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400 font-mono-code mb-2">
+                        <div className={`flex flex-wrap items-center gap-2 text-xs font-mono-code mb-2 ${
+                          isDark ? 'text-zinc-400' : 'text-zinc-600'
+                        }`}>
                           <span>{project.index}</span>
                           <span aria-hidden="true">·</span>
                           <span>{project.categoryLabel}</span>
@@ -249,13 +251,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                           <span>{project.subtitle}</span>
                         </div>
 
-                        <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-3">
+                        <h3 className={`text-xl sm:text-2xl font-bold tracking-tight mb-3 ${
+                          isDark ? 'text-zinc-100' : 'text-zinc-950'
+                        }`}>
                           {project.title}
                         </h3>
 
                         <p
                           className={`text-sm leading-relaxed mb-4 ${
-                            isDark ? 'text-zinc-300' : 'text-zinc-600'
+                            isDark ? 'text-zinc-300' : 'text-zinc-700'
                           }`}
                         >
                           {project.summary}
@@ -267,10 +271,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                             <li
                               key={i}
                               className={`text-xs flex items-start gap-2 ${
-                                isDark ? 'text-zinc-300' : 'text-zinc-600'
+                                isDark ? 'text-zinc-300' : 'text-zinc-700'
                               }`}
                             >
-                              <span className="text-blue-600 dark:text-blue-400 font-bold">
+                              <span className={`font-bold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
                                 —
                               </span>
                               <span>{feat}</span>
@@ -279,8 +283,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                         </ul>
 
                         {/* Technologies as Clean Unboxed Text with Typographic Separators */}
-                        <p className="text-xs font-mono-code text-zinc-500 dark:text-zinc-400 mb-6">
-                          <span className="font-semibold text-zinc-700 dark:text-zinc-300">
+                        <p className={`text-xs font-mono-code mb-6 ${
+                          isDark ? 'text-zinc-300' : 'text-zinc-700'
+                        }`}>
+                          <span className={`font-semibold ${
+                            isDark ? 'text-zinc-200' : 'text-zinc-900'
+                          }`}>
                             Stack:{' '}
                           </span>
                           {project.technologies.join(' · ')}
@@ -445,7 +453,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1">
+                  <h4 className={`text-xs font-semibold mb-1 ${isDark ? 'text-zinc-400' : 'text-zinc-700'}`}>
                     Solution Overview
                   </h4>
                   <p className={isDark ? 'text-zinc-300 leading-relaxed' : 'text-zinc-700 leading-relaxed'}>
@@ -455,33 +463,33 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div className={`p-3.5 rounded-xl border ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
-                    <p className="text-xs font-semibold mb-1">Frontend Layer</p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    <p className={`text-xs font-semibold mb-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>Frontend Layer</p>
+                    <p className={`text-xs leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
                       {activeModalProject.architectureHighlights.frontend}
                     </p>
                   </div>
                   <div className={`p-3.5 rounded-xl border ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
-                    <p className="text-xs font-semibold mb-1">Logic &amp; State</p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    <p className={`text-xs font-semibold mb-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>Logic &amp; State</p>
+                    <p className={`text-xs leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
                       {activeModalProject.architectureHighlights.logicAndState}
                     </p>
                   </div>
                   <div className={`p-3.5 rounded-xl border ${isDark ? 'bg-zinc-950 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
-                    <p className="text-xs font-semibold mb-1">Data Flow</p>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    <p className={`text-xs font-semibold mb-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>Data Flow</p>
+                    <p className={`text-xs leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
                       {activeModalProject.architectureHighlights.dataFlow}
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-2">
+                  <h4 className={`text-xs font-semibold mb-2 ${isDark ? 'text-zinc-400' : 'text-zinc-700'}`}>
                     Key Implemented Features
                   </h4>
                   <ul className="space-y-1.5">
                     {activeModalProject.keyFeatures.map((feat, idx) => (
-                      <li key={idx} className="text-xs flex items-start gap-2">
-                        <span className="text-blue-600 dark:text-blue-400 font-bold">·</span>
+                      <li key={idx} className={`text-xs flex items-start gap-2 ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                        <span className={`font-bold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>·</span>
                         <span>{feat}</span>
                       </li>
                     ))}

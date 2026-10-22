@@ -109,13 +109,15 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <p className="text-xs font-medium text-blue-600 dark:text-blue-400 mb-2">
+            <p className={`text-xs font-semibold mb-2 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
               04. Education &amp; Academic Background
             </p>
             <h2
               id="education-heading"
               style={{ textWrap: 'balance' }}
-              className="text-2xl sm:text-3xl font-bold tracking-tight"
+              className={`text-2xl sm:text-3xl font-bold tracking-tight ${
+                isDark ? 'text-zinc-100' : 'text-zinc-950'
+              }`}
             >
               Academic Qualification &amp; Internship Milestone
             </h2>
@@ -134,35 +136,52 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                 }`}
               >
                 <div>
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono-code text-zinc-500 dark:text-zinc-400 mb-2">
+                  <div className={`flex flex-wrap items-center gap-2 text-xs font-mono-code mb-2 ${
+                    isDark ? 'text-zinc-400' : 'text-zinc-600'
+                  }`}>
                     <span>0{idx + 1}</span>
                     <span aria-hidden="true">·</span>
-                    <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    <span className={isDark ? 'text-blue-400 font-semibold' : 'text-blue-600 font-semibold'}>
                       {edu.status}
                     </span>
                     <span aria-hidden="true">·</span>
                     <span>{edu.period}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold tracking-tight mb-1">{edu.degree}</h3>
-                  <p className="text-xs font-mono-code text-zinc-600 dark:text-zinc-300 mb-4">
-                    Institution: <span className="font-semibold text-zinc-900 dark:text-zinc-100">{edu.institution}</span>
+                  <h3 className={`text-xl font-bold tracking-tight mb-2 ${
+                    isDark ? 'text-zinc-100' : 'text-zinc-950'
+                  }`}>
+                    {edu.degree}
+                  </h3>
+                  <p className={`text-xs font-mono-code mb-4 ${
+                    isDark ? 'text-zinc-300' : 'text-zinc-700'
+                  }`}>
+                    Institution:{' '}
+                    <span className={`font-semibold ${
+                      isDark ? 'text-zinc-100' : 'text-zinc-950'
+                    }`}>
+                      {edu.institution}
+                    </span>
                   </p>
 
                   <p
                     className={`text-sm leading-relaxed mb-5 ${
-                      isDark ? 'text-zinc-300' : 'text-zinc-600'
+                      isDark ? 'text-zinc-300' : 'text-zinc-700'
                     }`}
                   >
                     {edu.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                  <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-2">
+                <div className={`pt-4 border-t ${isDark ? 'border-zinc-800' : 'border-zinc-200'}`}>
+                  <p className={`text-xs font-semibold mb-2 ${
+                    isDark ? 'text-zinc-300' : 'text-zinc-800'
+                  }`}>
                     Key Focus Areas:
                   </p>
-                  <p className="text-xs font-mono-code text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                  <p className={`text-xs font-mono-code leading-relaxed ${
+                    isDark ? 'text-zinc-200' : 'text-zinc-800'
+                  }`}>
                     {edu.courseworkFocus.join(' · ')}
                   </p>
                 </div>
@@ -183,13 +202,15 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
             {/* Left Column: Contact Details */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <p className="text-xs font-medium text-blue-600 dark:text-blue-400 mb-2">
+                <p className={`text-xs font-semibold mb-2 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
                   05. Contact &amp; Links
                 </p>
                 <h2
                   id="contact-heading"
                   style={{ textWrap: 'balance' }}
-                  className="text-2xl sm:text-3xl font-bold tracking-tight mb-3"
+                  className={`text-2xl sm:text-3xl font-bold tracking-tight mb-3 ${
+                    isDark ? 'text-zinc-100' : 'text-zinc-950'
+                  }`}
                 >
                   Get in Touch with Issac Sam Prakash
                 </h2>
@@ -215,17 +236,25 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                         href={item.href}
                         target={item.isExternal ? '_blank' : undefined}
                         rel={item.isExternal ? 'noopener noreferrer' : undefined}
-                        className="flex items-start gap-3 min-w-0 group hover:opacity-80 transition-opacity"
+                        className="flex items-start gap-3 min-w-0 group hover:opacity-85 transition-opacity"
                       >
                         <IconComponent
-                          className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0"
+                          className={`w-4 h-4 mt-0.5 shrink-0 ${
+                            isDark ? 'text-blue-400' : 'text-blue-600'
+                          }`}
                           aria-hidden="true"
                         />
                         <div className="min-w-0">
-                          <p className={`text-xs ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                          <p className={`text-xs font-medium ${
+                            isDark ? 'text-zinc-400' : 'text-zinc-600'
+                          }`}>
                             {item.label}
                           </p>
-                          <p className="text-xs font-mono-code font-medium truncate mt-0.5 text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                          <p className={`text-xs font-mono-code font-bold truncate mt-0.5 ${
+                            isDark
+                              ? 'text-zinc-100 group-hover:text-blue-400'
+                              : 'text-zinc-950 group-hover:text-blue-600'
+                          }`}>
                             {item.value}
                           </p>
                         </div>
@@ -240,8 +269,8 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                             aria-label={`Open ${item.label} in new tab`}
                             className={`p-1.5 rounded-lg border transition-colors ${
                               isDark
-                                ? 'bg-zinc-900 border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800'
-                                : 'bg-zinc-50 border-zinc-300 text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
+                                ? 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800'
+                                : 'bg-zinc-50 border-zinc-300 text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100'
                             }`}
                           >
                             <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
@@ -253,14 +282,14 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                           aria-label={`Copy ${item.label}`}
                           className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-colors shrink-0 cursor-pointer ${
                             isDark
-                              ? 'bg-zinc-900 border-zinc-700 text-zinc-300 hover:bg-zinc-800'
-                              : 'bg-zinc-50 border-zinc-300 text-zinc-700 hover:bg-zinc-100'
+                              ? 'bg-zinc-900 border-zinc-700 text-zinc-200 hover:bg-zinc-800'
+                              : 'bg-zinc-50 border-zinc-300 text-zinc-800 hover:bg-zinc-100'
                           }`}
                         >
                           {copiedField === item.key ? (
                             <>
                               <Check className="w-3.5 h-3.5 text-emerald-500" aria-hidden="true" />
-                              <span>Copied</span>
+                              <span className={isDark ? 'text-emerald-400 font-semibold' : 'text-emerald-700 font-semibold'}>Copied</span>
                             </>
                           ) : (
                             <>
@@ -283,8 +312,10 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                   isDark ? 'bg-zinc-900/60 border-zinc-800' : 'bg-white border-zinc-200'
                 }`}
               >
-                <h3 className="text-lg font-bold mb-1">Send a Direct Message</h3>
-                <p className={`text-xs mb-6 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                <h3 className={`text-lg font-bold mb-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>
+                  Send a Direct Message
+                </h3>
+                <p className={`text-xs mb-6 ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                   All fields are validated with accessible error handling.
                 </p>
 
@@ -315,7 +346,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                 <form onSubmit={handleFormSubmit} noValidate className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-name" className="block text-xs font-semibold mb-1.5">
+                      <label htmlFor="contact-name" className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>
                         Your Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -337,7 +368,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                             ? 'border-red-500'
                             : isDark
                             ? 'bg-zinc-950 border-zinc-700 text-zinc-100 placeholder:text-zinc-500'
-                            : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-400'
+                            : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-500'
                         }`}
                       />
                       {formErrors.name && (
@@ -353,7 +384,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                     </div>
 
                     <div>
-                      <label htmlFor="contact-email" className="block text-xs font-semibold mb-1.5">
+                      <label htmlFor="contact-email" className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>
                         Your Email <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -375,7 +406,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                             ? 'border-red-500'
                             : isDark
                             ? 'bg-zinc-950 border-zinc-700 text-zinc-100 placeholder:text-zinc-500'
-                            : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-400'
+                            : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-500'
                         }`}
                       />
                       {formErrors.email && (
@@ -392,7 +423,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                   </div>
 
                   <div>
-                    <label htmlFor="contact-subject" className="block text-xs font-semibold mb-1.5">
+                    <label htmlFor="contact-subject" className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>
                       Subject <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -414,7 +445,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                           ? 'border-red-500'
                           : isDark
                           ? 'bg-zinc-950 border-zinc-700 text-zinc-100 placeholder:text-zinc-500'
-                          : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-400'
+                          : 'bg-zinc-50 border-zinc-300 text-zinc-900 placeholder:text-zinc-500'
                       }`}
                     />
                     {formErrors.subject && (
@@ -430,7 +461,7 @@ export const EducationContactSection: React.FC<EducationContactSectionProps> = (
                   </div>
 
                   <div>
-                    <label htmlFor="contact-message" className="block text-xs font-semibold mb-1.5">
+                    <label htmlFor="contact-message" className={`block text-xs font-semibold mb-1.5 ${isDark ? 'text-zinc-200' : 'text-zinc-800'}`}>
                       Message <span className="text-red-500">*</span>
                     </label>
                     <textarea

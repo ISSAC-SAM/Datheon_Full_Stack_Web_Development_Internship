@@ -35,13 +35,15 @@ export const AboutSkillsSection: React.FC<AboutSkillsSectionProps> = ({ theme })
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-5">
-              <p className="text-xs font-medium text-blue-600 dark:text-blue-400 mb-2">
+              <p className={`text-xs font-semibold mb-2 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
                 01. About Me
               </p>
               <h2
                 id="about-heading"
                 style={{ textWrap: 'balance' }}
-                className="text-2xl sm:text-3xl font-bold tracking-tight mb-4"
+                className={`text-2xl sm:text-3xl font-bold tracking-tight mb-4 ${
+                  isDark ? 'text-zinc-100' : 'text-zinc-950'
+                }`}
               >
                 An MCA student focused on clean fundamentals and practical web engineering.
               </h2>
@@ -69,22 +71,28 @@ export const AboutSkillsSection: React.FC<AboutSkillsSectionProps> = ({ theme })
                 }`}
               >
                 <div>
-                  <p className={`text-xs ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  <p className={`text-xs font-medium ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     Developer Name
                   </p>
-                  <p className="text-sm font-semibold mt-1">{PERSONAL_INFO.name}</p>
+                  <p className={`text-sm font-semibold mt-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>
+                    {PERSONAL_INFO.name}
+                  </p>
                 </div>
                 <div>
-                  <p className={`text-xs ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  <p className={`text-xs font-medium ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     Current Education
                   </p>
-                  <p className="text-sm font-semibold mt-1">{PERSONAL_INFO.education}</p>
+                  <p className={`text-sm font-semibold mt-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>
+                    {PERSONAL_INFO.education}
+                  </p>
                 </div>
                 <div>
-                  <p className={`text-xs ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  <p className={`text-xs font-medium ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                     Proficiency Level
                   </p>
-                  <p className="text-sm font-semibold mt-1">Beginner · Full Stack Focus</p>
+                  <p className={`text-sm font-semibold mt-1 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>
+                    Beginner · Full Stack Focus
+                  </p>
                 </div>
               </div>
             </div>
@@ -174,22 +182,26 @@ export const AboutSkillsSection: React.FC<AboutSkillsSectionProps> = ({ theme })
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-mono-code text-zinc-500 dark:text-zinc-400">
+                      <span className={`text-xs font-mono-code ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                         0{idx + 1} · {skill.categoryLabel}
                       </span>
                       {isSelected && (
-                        <span className="text-xs font-medium text-blue-600 dark:text-blue-400">
+                        <span className={`text-xs font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
                           Active
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg font-bold tracking-tight mb-1">{skill.name}</h3>
-                    <p className={`text-xs mb-3 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                    <h3 className={`text-lg font-bold tracking-tight mb-1 ${
+                      isDark ? 'text-zinc-100' : 'text-zinc-950'
+                    }`}>
+                      {skill.name}
+                    </h3>
+                    <p className={`text-xs font-medium mb-3 ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                       {skill.level}
                     </p>
                     <p
                       className={`text-xs leading-relaxed line-clamp-2 ${
-                        isDark ? 'text-zinc-300' : 'text-zinc-600'
+                        isDark ? 'text-zinc-300' : 'text-zinc-700'
                       }`}
                     >
                       {skill.description}
@@ -205,21 +217,25 @@ export const AboutSkillsSection: React.FC<AboutSkillsSectionProps> = ({ theme })
                 isDark ? 'bg-zinc-900/70 border-zinc-800' : 'bg-white border-zinc-200'
               }`}
             >
-              <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-zinc-200 dark:border-zinc-800">
+              <div className={`flex items-center justify-between gap-2 pb-4 mb-4 border-b ${
+                isDark ? 'border-zinc-800' : 'border-zinc-200'
+              }`}>
                 <div>
-                  <p className="text-xs font-medium text-blue-600 dark:text-blue-400">
+                  <p className={`text-xs font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
                     Skill Implementation Inspector
                   </p>
-                  <h3 className="text-xl font-bold mt-0.5">{selectedSkill.name}</h3>
+                  <h3 className={`text-xl font-bold mt-0.5 ${isDark ? 'text-zinc-100' : 'text-zinc-950'}`}>
+                    {selectedSkill.name}
+                  </h3>
                 </div>
-                <span className="text-xs font-mono-code text-zinc-500 dark:text-zinc-400">
+                <span className={`text-xs font-mono-code ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
                   {selectedSkill.categoryLabel}
                 </span>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1">
+                  <h4 className={`text-xs font-semibold mb-1 ${isDark ? 'text-zinc-400' : 'text-zinc-700'}`}>
                     Core Focus
                   </h4>
                   <p className={`text-sm leading-relaxed ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
